@@ -3,11 +3,11 @@ import {  leerExcel } from "./controllers/documentoControler.js";
 import { generarContrato } from "./controllers/ordenServicio.js";
 
 let data = leerExcel('./registro.xlsx');
-// console.log(data);
+console.log(data);
 
-// data.forEach( async ods =>{
-//     await generarContrato(ods);
-// });
+data.forEach( async ods =>{
+    await generarContrato(ods);
+});
 
 
 const init = async ()=>{
