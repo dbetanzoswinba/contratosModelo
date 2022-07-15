@@ -5,8 +5,7 @@ import util from 'util';
 
 libre.convertAsync = util.promisify(libre.convert);
 
-export const obtenerDocumentos = ()=>{
-    const carpetaDocumentos ='./docs';
+export const obtenerDocumentos = (carpetaDocumentos)=>{
     return fs.readdirSync(carpetaDocumentos);
 
 }
@@ -17,7 +16,7 @@ export const convertirDOCaPDF = (documento)=>{
         const doc = `./docs/${documento}`;
         const nombreDocumento = documento.split('.');
         const ext = '.pdf'
-        const outputPath = `./docs/pdfs/${nombreDocumento[0]}.${ext}`;
+        const outputPath = `./docs/pdfs/${nombreDocumento[0]}${ext}`;
         const docxBuf = await fs.promises.readFile(doc);
         let pdfBuf = await libre.convertAsync(docxBuf, ext, undefined);
         await fs.promises.writeFile(outputPath, pdfBuf);

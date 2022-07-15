@@ -22,7 +22,7 @@ export const generarContrato = async (data)=>{
 
     const {dia : dActual, mes : mActual , anio : aActual } = convertirFecha(fechaActual);
     data.dActual = dActual;
-    data.mActual = mActual;
+    data.mActual = mActual.toUpperCase();
     data.aActual = aActual;
 
     const numeroTrabajadores = data.trabajadores;
